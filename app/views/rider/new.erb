@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create a New Rider</title>
+</head>
+<body>
+    <form action="/riders" method="POST">
+        <label for="name">Name: </label>
+        <input type="text" name="name">
+
+        <div>
+            <p>Would you like to become a member?</p>
+            <input type="radio" name="has_membership" value="yes"> Yes<br>
+            <input type="radio" name="has_membership" value="no"> No<br>
+        </div>
+
+        <div>
+            <p>Would you like to add your bike(s) to the bike share?</p>
+            
+            <% 3.times do %>
+                <div>
+                    <select name="bikes[][color]">
+                     <% @colors.each do |c| %>
+                            <option value="<%= c %>"><%= c %></option>
+                    <% end %>
+                    </select>
+    
+                    <label for="miles">Miles: </label>
+                    <input type="number" name="bikes[][miles]">
+                </div>
+            <% end %>
+
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

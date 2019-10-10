@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create a New Rider</title>
+</head>
+<body>
+    <form action="/riders/<%= @rider.id %>" method="POST">
+
+        <input id="hidden" type="hidden" name="_method" value="PATCH">
+
+        <label for="name">Name: </label>
+        <input type="text" name="name" value="<%= @rider.name %>">
+
+        <div>
+            <p>Would you like to change your membership status?</p>
+            <input type="radio" name="has_membership" value="yes"> Yes<br>
+            <input type="radio" name="has_membership" value="no"> No<br>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

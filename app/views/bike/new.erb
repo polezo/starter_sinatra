@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create New Bike</title>
+</head>
+<body>
+    <form action="/bikes" method="post">
+        <select name="color">
+            <% @colors.each do |color| %>
+            <option value="<%= color %>"><%= color %></option>
+            <% end %>
+        </select>
+
+        <label for="miles">Miles</label>
+        <input type="number" name="miles">
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
